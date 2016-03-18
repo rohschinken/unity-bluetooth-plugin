@@ -1,0 +1,35 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:1:1-13:12
+	package
+		ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:2:5-37
+		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:1:11-69
+	android:versionCode
+		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
+application
+ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:4:5-11:19
+	android:label
+		ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:7:9-41
+	android:supportsRtl
+		ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:8:9-35
+	android:allowBackup
+		ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:5:9-35
+	android:icon
+		ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:6:9-43
+	android:theme
+		ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:9:9-40
+uses-sdk
+INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+	android:targetSdkVersion
+		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
