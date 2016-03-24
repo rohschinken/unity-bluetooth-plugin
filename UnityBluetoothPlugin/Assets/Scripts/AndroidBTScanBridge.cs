@@ -16,7 +16,9 @@ public static class AndroidBTScanBridge
 		#endif
 	}
 
-
+	/// <summary>
+	/// Initializes and starts the Android Service which handles all the Bluetoothadapter interaction
+	/// </summary>
 	public static void Initialize()
 	{
 		if (!_supported) 
@@ -33,12 +35,13 @@ public static class AndroidBTScanBridge
 
 		// Create an instance of our bridge (because it also needs to receive data from the service as a broadcastreceiver)
 		_staticBridge.CallStatic("createInstance", unityActivityObject);
-
-
-		// TODO: wait for activity (or broadcastreceiver) to be created (onCreate) before trying to access an instance
-//		_adapterInterface = bridgeClass.CallStatic<AndroidJavaObject> ("getInstance");
 	}
 
+	/// <summary>
+	/// Stops and kills the Android Service.
+	/// If you want to use Bluetooth features after you called this function you need to call Initialize() again.
+	/// It is recommended to call this function before the Application quits. (it shouldn't be necessary, though)
+	/// </summary>
 	public static void KillAndroidService()
 	{
 		_staticBridge.CallStatic ("stopService");
@@ -70,6 +73,10 @@ public static class AndroidBTScanBridge
 	#endregion
 
 	#region public API method calls
+	/// <summary>
+	/// Enables the Bluetooth adapter on the Android device.
+	/// Requires permission (user promp)
+	/// </summary>
 	public static void EnableBluetoothAdapter()
 	{
 		if (_staticBridge == null) return;
@@ -77,6 +84,9 @@ public static class AndroidBTScanBridge
 		_staticBridge.CallStatic ("enableBluetoothAdapter");
 	}
 
+	/// <summary>
+	/// Disables the Bluetooth adapter on the Android device.
+	/// </summary>
 	public static void DisableBluetoothAdapter()
 	{
 		if (_staticBridge == null) return;
@@ -84,6 +94,9 @@ public static class AndroidBTScanBridge
 		_staticBridge.CallStatic ("disableBluetoothAdapter");
 	}
 
+	/// <summary>
+	/// Enables or Disables the Bluetooth adapter on the Android device.
+	/// </summary>
 	public static void ToggleBluetoothAdapter()
 	{
 		if (_staticBridge == null) return;
@@ -98,6 +111,10 @@ public static class AndroidBTScanBridge
 		}
 	}
 
+	/// <summary>
+	/// Sets the name of the Bluetooth adapter on the Android device (= friendly name).
+	/// </summary>
+	/// <param name="theNewAdapterName">The new adapter name.</param>
 	public static void SetAdapterFriendlyName(string theNewAdapterName)
 	{
 		if (_staticBridge == null) return;
@@ -105,6 +122,10 @@ public static class AndroidBTScanBridge
 		_staticBridge.CallStatic ("setAdapterFriendlyName", theNewAdapterName);
 	}
 
+	/// <summary>
+	/// Makes the Android device visible to other Bluetooth devices for an unspecified period of time.
+	/// Requires permission (user promp)
+	/// </summary>
 	public static void EnableBTDiscoverability()
 	{
 		if (_staticBridge == null) return;
@@ -113,8 +134,9 @@ public static class AndroidBTScanBridge
 	}
 
 	/// <summary>
-	/// Disables the BT discoverability. 
-	/// Warning: Changes discoverability to 1 sec. and thus will show a dialog to the user
+	/// Makes the Android device visible to other Bluetooth devices for exactly 1 second.
+	/// Afterwards the device is not visible anymore.
+	/// Requires permission (user promp)
 	/// </summary>
 	public static void DisableBTDiscoverability()
 	{
@@ -123,6 +145,10 @@ public static class AndroidBTScanBridge
 		_staticBridge.CallStatic ("disableBTDiscoverability");
 	}
 
+	/// <summary>
+	/// Sets the bluetooth name of the scan target device.
+	/// </summary>
+	/// <param name="theDeviceName">The bluetooth device name.</param>
 	public static void SetScanTargetDeviceName(string theDeviceName)
 	{
 		if (_staticBridge == null) return;
@@ -130,6 +156,11 @@ public static class AndroidBTScanBridge
 		_staticBridge.CallStatic ("setScanTargetDeviceName", theDeviceName);
 	}
 
+	/// <summary>
+	/// Starts scanning for other Bluetooth devices.
+	/// One complete scan takes ~12 seconds. Once the scan is complete it will restart automatically.
+	/// If a target device name is specified, the scan will restart immediately when a Bluetooth device with a matching name has been found.
+	/// </summary>
 	public static void StartScan()
 	{
 		if (_staticBridge == null) return;
@@ -137,6 +168,9 @@ public static class AndroidBTScanBridge
 		_staticBridge.CallStatic ("startScan");
 	}
 
+	/// <summary>
+	/// Stops scanning for other Bluetooth devices.
+	/// </summary>
 	public static void StopScan()
 	{
 		if (_staticBridge == null) return;
@@ -144,6 +178,9 @@ public static class AndroidBTScanBridge
 		_staticBridge.CallStatic ("stopScan");
 	}
 
+	/// <summary>
+	/// Starts or stops scanning for other Bluetooth devices.
+	/// </summary>
 	public static void ToggleScan()
 	{
 		if (_staticBridge == null) return;
@@ -160,6 +197,10 @@ public static class AndroidBTScanBridge
 	#endregion
 		
 	#region public API getter calls
+	/// <summary>
+	/// Gets if the Android Bluetooth Service is active.
+	/// </summary>
+	/// <returns><c>true</c>, if the service is running, <c>false</c> otherwise.</returns>
 	public static bool GetBTServiceRunning()
 	{
 		if (_staticBridge == null) return false;
@@ -167,6 +208,10 @@ public static class AndroidBTScanBridge
 		return _staticBridge.GetStatic<bool> ("serviceConnected");
 	}
 
+	/// <summary>
+	/// Gets if the Android Bluetooth Adapter is enabled. 
+	/// </summary>
+	/// <returns><c>true</c>, if adapter is enabled, <c>false</c> otherwise.</returns>
 	public static bool GetBTAdapterEnabled()
 	{
 		if (_staticBridge == null) return false;
@@ -174,6 +219,10 @@ public static class AndroidBTScanBridge
 		return _staticBridge.GetStatic<bool> ("bluetoothAdapterEnabled");
 	}
 
+	/// <summary>
+	/// Gets the name (Bluetooth friendly name) of the Android Bluetooth Adapter.
+	/// </summary>
+	/// <returns>The adapter name.</returns>
 	public static string GetBluetoothAdapterName()
 	{
 		if (_staticBridge == null) return null;
@@ -181,6 +230,10 @@ public static class AndroidBTScanBridge
 		return _staticBridge.CallStatic<string> ("getBluetoothAdapterName");
 	}
 
+	/// <summary>
+	/// Gets if the Android device is discoverable for other Bluetooth devices.
+	/// </summary>
+	/// <returns><c>true</c>, if adapter is visible, <c>false</c> otherwise.</returns>
 	public static bool GetBluetoothAdapterDiscoverable()
 	{
 		if (_staticBridge == null) return false;
@@ -188,6 +241,10 @@ public static class AndroidBTScanBridge
 		return _staticBridge.GetStatic<bool> ("bluetoothAdapterDiscoverable");
 	}
 
+	/// <summary>
+	/// Gets the name of the scan target device.
+	/// </summary>
+	/// <returns>The scan target device name.</returns>
 	public static string GetScanTargetDeviceName()
 	{
 		if (_staticBridge == null) return null;
@@ -195,6 +252,10 @@ public static class AndroidBTScanBridge
 		return _staticBridge.CallStatic<string> ("getScanTargetDeviceName");
 	}
 
+	/// <summary>
+	/// Gets if the scan is active.
+	/// </summary>
+	/// <returns><c>true</c>, if the scan is active/running, <c>false</c> otherwise.</returns>
 	public static bool GetScanActive()
 	{
 		if (_staticBridge == null) return false;
@@ -202,18 +263,17 @@ public static class AndroidBTScanBridge
 		return _staticBridge.GetStatic<bool> ("scanActive");
 	}
 
+	/// <summary>
+	/// Returns the result of the last scan cycle.
+	/// The result string has the following format:
+	/// "adaptername:rssivalue;adaptername:rssivalue;" (e.g. "myPhone:-40;otherPhone:-72;")
+	/// </summary>
+	/// <returns>The scan result as string.</returns>
 	public static string GetScanResult()
 	{
 		if (_staticBridge == null) return string.Empty;
 
 		return _staticBridge.GetStatic<string> ("scanResult");
 	}
-
-//	public static string GetPairedDevices()
-//	{
-//		if (_adapterInterface == null) return null;
-//
-//		return _adapterInterface.Call<string> ("getPairedDevices");
-//	}
 	#endregion
 }
