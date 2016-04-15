@@ -15,6 +15,8 @@ ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManife
 		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
 application
 ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:4:5-11:19
+MERGED from [com.android.support:appcompat-v7:23.1.1] D:\Eigene Dateien\Projekte\Android\UnityBt\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.1.1] D:\Eigene Dateien\Projekte\Android\UnityBt\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:7:9-41
 	android:supportsRtl
@@ -27,6 +29,8 @@ ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManife
 		ADDED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml:9:9-40
 uses-sdk
 INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:23.1.1] D:\Eigene Dateien\Projekte\Android\UnityBt\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.1.1] D:\Eigene Dateien\Projekte\Android\UnityBt\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
 		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Eigene Dateien\Projekte\Android\UnityBt\app\src\main\AndroidManifest.xml
